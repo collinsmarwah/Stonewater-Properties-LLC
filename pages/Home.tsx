@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, ShieldCheck, Clock, Star, Award, GraduationCap } from 'lucide-react';
@@ -111,8 +112,8 @@ const Home: React.FC = () => {
                 </div>
                 <div className="p-8">
                   <div className="bg-stone-950 w-12 h-12 rounded-xl flex items-center justify-center -mt-14 relative z-10 border border-stone-800 shadow-lg mb-6 group-hover:bg-primary-500 transition-colors">
-                     {/* Clone icon to style it */}
-                     {React.cloneElement(service.icon as React.ReactElement, { className: "w-6 h-6 text-primary-500 group-hover:text-white transition-colors" })}
+                     {/* Clone icon to style it - Using React.ReactElement<any> to fix type incompatibility with className prop */}
+                     {React.cloneElement(service.icon as React.ReactElement<any>, { className: "w-6 h-6 text-primary-500 group-hover:text-white transition-colors" })}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-6">

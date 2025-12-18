@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../constants';
@@ -37,8 +38,8 @@ const Services: React.FC = () => {
               <div className="p-8 flex-1 flex flex-col">
                 <div className="flex items-center mb-4">
                   <div className="bg-primary-600/20 p-2.5 rounded-lg mr-4">
-                     {/* Clone icon to style it */}
-                     {React.cloneElement(service.icon as React.ReactElement, { className: "w-6 h-6 text-primary-500" })}
+                     {/* Clone icon to style it - Using React.ReactElement<any> to fix type incompatibility with className prop */}
+                     {React.cloneElement(service.icon as React.ReactElement<any>, { className: "w-6 h-6 text-primary-500" })}
                   </div>
                   <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                 </div>
